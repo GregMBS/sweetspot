@@ -1,11 +1,11 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask import request
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    import pdb; pdb.set_trace()
     return 'Hello, World!'
+
 
 @app.route('/receive', methods=['GET', 'POST'])
 def receive():
@@ -15,7 +15,15 @@ def receive():
     return 'got here'
 
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
+
 if __name__ == '__main__':
     pass
-    
-
