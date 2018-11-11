@@ -32,5 +32,6 @@ t_data = Table(
     'data', metadata,
     Column('id', BigInteger, nullable=False, unique=True, server_default=text("nextval('data_id_seq'::regclass)")),
     Column('beacon_id', ForeignKey('beacon.id'), nullable=False, index=True, server_default=text("nextval('data_beacon_id_seq'::regclass)")),
-    Column('timestamp', Time)
+    Column('timestamp', Time),
+    Column('counter', Integer, server_default=text("0"))
 )
